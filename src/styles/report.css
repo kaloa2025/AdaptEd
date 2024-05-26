@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
+.course-container
+{
+    width: 100%;
+    max-width: 900px;
+    margin: 0%;
+    padding: 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+.course-list{
+    margin-top: 1%;
+    margin-left: 0%;
+    display: flex;
+    overflow-x: auto;
+    padding: 0px;
+    
+}
+.course-detail{
+    
+    padding-right: 3%;
+    margin: 1px;
+    min-width: 200px;
+}
+.course-list::-webkit-scrollbar {
+    display: none;
+  }
+.course-image{
+    width: 90%;
+    height: 160px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+.course-info{
+    margin: 1%;
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: x-small;
+}
+.course-name{
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
+    margin: 0%;
+    margin-top: 2%;
+}
+
+.scoresheet{
+    display: flex;
+    column-gap: 10%;
+}
+.marks{
+    margin-left: -14%;
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+    background-color: #454545;
+    border-radius: 0px 10px 10px 0px;
+    display: flex;
+}
+.score-text{
+    color: #454545;
+    font-family: Inter,'sans-serif';
+    font-weight: 900;
+    font-size: 200%;
+    margin-left: -4%;
+    margin-right: 0%;
+    z-index: 1;
+    transform: rotate(-90deg);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px 10px 0px 0px;
+    padding-left: 0.6%;
+    padding-right: 0.6%;
+    padding-top: 1%;
+}
+.score-number{
+    color: aliceblue;
+    font-family: Inter,'sans-serif';
+    font-weight: 600;
+    font-size: larger;
+}
+.grade{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    width:20%;
+    margin-left:50%;
+    text-align: center;
+    align-self:flex-start;
+    font-family: Inter,'sans-serif';
+    font-weight: 900;
+    font-size: 200%;
+    color: #24FF00;
+}
+.grade:hover{
+    cursor: pointer;
+    background-color:#24FF00;
+    color: #454545;
+}
+.heading-path{
+    font-family: Inter,'sans-serif';
+    font-weight: 600;
+    font-size: large;
+    margin: 0%;
+    margin-top: 2%;
+}

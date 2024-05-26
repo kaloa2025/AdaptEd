@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
+.container{
+    margin: 1%;
+    padding: 2%;
+}
+.courseName{
+    font-family: Inter,'sans-serif';
+    font-weight: 600;
+    font-size:large;
+    margin-top: 2%;
+    margin-bottom: 0%;
+    margin-left: 2%;
+}
+.author{
+    font-family: Inter,'sans-serif';
+    margin-left: 2%;
+    font-weight: 600;
+    font-size: 80%;
+    margin-top: 0%;
+    margin-bottom:1%;
+    color: #454545;
+}
+.duration{
+    font-family: Inter,'sans-serif';
+    margin-left: 2%;
+    font-weight: 300;
+    font-size: 80%;
+    margin-top: 0%;
+    margin-bottom:2%;
+    color: #000000;
+}
+.description{
+    font-family: Inter,'sans-serif';
+    margin-left: 2%;
+    font-weight: 200;
+    margin-top: 3%;
+    font-size: small;
+    margin-bottom: 15%;
+    color: #000000;
+}
+.quizButton{
+    background-color: #24FF00;
+    font-size: small;
+    width: 100%;
+    color: black;
+    border-radius: 5%;
+    font-family: Inter,'sans-serif';
+    font-weight: 400;
+    border-radius: 10px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: 0cm;
+    cursor: pointer;
+    margin-bottom: 5%;
+}
+.reportButton{
+    background-color: #454545;
+    font-size: small;
+    width: 100%;
+    color: aliceblue;
+    border-radius: 5%;
+    font-family: Inter,'sans-serif';
+    font-weight: 400;
+    border-radius: 10px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: 0cm;
+    cursor: pointer;
+}
+.display_Image{
+    height: 180px;
+    width: 100%;
+    border-radius: 15px;
+}
