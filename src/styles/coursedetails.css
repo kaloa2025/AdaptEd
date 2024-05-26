@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
+.topic-container
+{
+    width: 100%;
+    padding: 4px;
+    border-radius: 8px;
+}
+.topic-detail{
+    padding-right: 3%;
+    margin: 1px;
+    display: flex;
+    column-gap: 10%;
+    margin-bottom: 5%;
+    width: 90%;
+}
+.topic-container::-webkit-scrollbar {
+    display: none;
+  }
+.topic-image{
+    width: 35%;
+    height : 120px;
+    border-radius: 10px;
+}
+.topic-image:hover
+{
+    cursor: pointer;
+    mask-image: url('../assests/play.png');
+    mask-position: center;
+    mask-size: 30%;
+    mask-repeat: no-repeat;
+}
+.topic-info{
+    margin: 1%;
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: small;
+}
+.topic-name{
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: medium;
+    margin: 0%;
+    margin-top: 8%;
+    margin-bottom: 5%;
+}
+
