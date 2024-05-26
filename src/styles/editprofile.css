@@ -12,5 +12,79 @@
     margin-left: 4%;
 }
 .editProfileSection{
-    background: #000;
+
+}
+.photoSection{
+    display: flex;
+    column-gap: 3%;
+    margin-bottom: 3%;
+}
+.profilePhoto{
+    border-radius: 50%;
+    width: 9%;
+    height: 9%;
+    background-color: black;
+}
+.profilePhoto:hover{
+    cursor: pointer;
+    mask-image: url('../assests/camera.png');
+    mask-size: 70%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+.heading{
+    font-family: Inter,'sans-serif';
+    font-weight: 400;
+    font-size:75%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+.Nheading{
+    font-family: Inter,'sans-serif';
+    font-weight: 600;
+    font-size:90%;
+    margin-bottom: 4%;
+    margin-left: 4%;
+}
+.subtext{
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: 70%;
+    margin-bottom: 0%;
+    margin-top: 1%;
+    margin-left: 4%;
+    width: 120%;
+}
+
+.saveButton{
+    background-color: #24FF00;
+    border-style: none;
+    margin-top: 5%;
+    padding:8px;
+    width: 20%;
+    border-radius: 10px;
+    font-family: Inter,'sans-serif';
+    cursor: pointer;
+}
+
+.saveButton:hover{
+    box-shadow: 2px 2px rgba(128, 128, 128, 0.201);
+}
+
+.input{
+    width: 50%;
+    border-radius: 7px;
+    height: 25px;
+    border-color:rgb(228, 228, 228);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.text-input{
+    width: 50%;
+    border-radius: 8px;
+    height: 90px;
+    border-color:rgb(228, 228, 228);
+    border-width: 1px;
+    border-style: solid;
 }
