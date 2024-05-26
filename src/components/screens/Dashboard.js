@@ -1,8 +1,8 @@
 import React from 'react'
-import Profile from './Profile.js'
-import '../styles/dashboard.css'
-import Suggestion from './Suggestion.js'
-import MyCourses from './MyCourses.js'
+import Profile from '../Profile.js'
+import '../../styles/dashboard.css'
+import Suggestion from '../Suggestion.js'
+import MyCourses from '../MyCourses.js'
 
 function Dashboard() {
   return (
