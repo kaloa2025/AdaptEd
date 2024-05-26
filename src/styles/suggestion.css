@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
+.Sugg-container{
+    background-color: #454545;
+    border-radius: 10px;
+    width: 910px;
+    height: 190px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    color: aliceblue;
+    font-family: Inter,'sans-serif';
+    font-weight: 200;
+    margin-top: 0%;
+    font-size: smaller;
+}

@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
 
-.brand{
- margin-left: 5%;
- margin-top: 3%;
- font-family: Inter,sans-serif;
- font-size: medium;
- font-weight: 600;
+.container-row{
+    display: grid;
+    display: flex;
+    column-gap: 3%;
 }
+.container-column{
+    display: grid;
+    row-gap: 0%;
+}
+.profileSection{
+    margin-top: 0%;
+    width: 200px;
+    margin-left: 4%;
+  }
