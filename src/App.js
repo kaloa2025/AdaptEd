@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/screens/Dashboard';
 import EditProfile from './components/screens/EditProfile';
-import Quiz from './components/Quiz';
+import QuizReport from './components/screens/QuizReport';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <p className='brand'>AdaptEd</p>
       {/* <Dashboard/> */}
       {/* <EditProfile/> */}
-      <Quiz/>
+      <QuizReport/>
     </div>
     
   );
