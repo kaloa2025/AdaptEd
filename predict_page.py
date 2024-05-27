@@ -8,7 +8,7 @@ model = joblib.load('student_pass_predictor.pkl')
 
 # Define the Streamlit app
 def main():
-    st.title('Student Pass Prediction App')
+    st.title('Student Course Prediction')
 
     # Text input fields for user input
     st.subheader('Enter Student Details:')
@@ -39,7 +39,7 @@ def main():
         # Display prediction result
         st.subheader('Suggested Course ')
         if prediction[0] == 'yes':
-            st.success('Course 1.')
+            st.success('Course 1')
         else:
             st.success('Course 2')
 
