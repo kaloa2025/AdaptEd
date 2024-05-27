@@ -1,0 +1,115 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 250px;
+    background: white;
+    padding-bottom: 30px;
+    width: 400px;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+.heading1{
+    color:black;
+    font-size: 24;
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.heading2{
+    color: black;
+    font-size: 16;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+
+.inputs{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input{
+    display:flex;
+    align-items: center;
+    margin: auto;
+    width: 400px;
+    height: 40px;
+    background: white;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    
+}
+
+
+.input input{
+    height: 40px;
+    width: 400px;
+    background: transparent;
+    border:none;
+    outline: none;
+    color: #828282;
+    font-size: 20px;
+
+}
+
+.termscond{
+    margin-top: 15px;
+    color: #828282;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+}
+
+.termscond span{
+    color: black;
+    cursor: pointer;
+}
+
+.submit-container{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 15px;
+}
+
+.submit1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    color: black;
+    background: #24ff00;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    color: white;
+    background: #454545;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-weight: 700;
+    cursor: pointer;
+
+}
