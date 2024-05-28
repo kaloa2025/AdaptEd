@@ -5,8 +5,8 @@ import EditProfile from './components/screens/EditProfile';
 import QuizReport from './components/screens/QuizReport';
 import CourseScreen from './components/screens/CourseScreen';
 import SuggestionForm from './components/screens/SuggestionForm';
-import Signup from './components/LoginSignup/Signup';
-import Login from './components/LoginSignup/Login';
+import Login from './components/screens/Login';
+import Signup from './components/screens/Signup';
 
 function App() {
   return (
@@ -16,11 +16,9 @@ function App() {
       {/* <EditProfile/> */}
       {/* <QuizReport/> */}
       {/* <CourseScreen/> */}
-      {/* <SuggestionForm/> */}
-      <Signup />
-      <Login />
-
-      
+      <SuggestionForm/>
+      {/* <Login/> */}
+      {/* <Signup/> */}
     </div>
     
   );

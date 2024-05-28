@@ -1,44 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
 .container{
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 250px;
     background: white;
     padding-bottom: 30px;
     width: 400px;
-
+    align-items: center;
+    align-content: center;
 }
-
 .header{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
     width: 100%;
-    margin-top: 30px;
-
+    margin-top: 20%;
+    font-family: Inter,'sans-serif';
+    font-size: larger;
 }
 
 .heading1{
     color:black;
     font-size: 24;
-    font-family: 'Inter';
-    font-weight: 600;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    margin-bottom: 1%;
 }
 
 .heading2{
     color: black;
-    font-size: 16;
-    font-family: 'Inter';
-    font-style: normal;
+    font-family: Inter,'sans-serif';
+    font-weight: 200;
+    font-size: 12px;
+    margin-bottom: 1%;
 }
-
 
 .inputs{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
 }
 
 .input{
@@ -46,31 +53,34 @@
     align-items: center;
     margin: auto;
     width: 400px;
-    height: 40px;
+    height: 38px;
     background: white;
     border: 2px solid #E0E0E0;
-    border-radius: 6px;
-    
+    border-radius: 6px; 
 }
 
 
 .input input{
-    height: 40px;
+    height: 38px;
     width: 400px;
     background: transparent;
     border:none;
     outline: none;
     color: #828282;
     font-size: 20px;
-
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
+    margin-left: 3%;
 }
 
 .termscond{
     margin-top: 15px;
     color: #828282;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: 80%;
+    text-align: center;
 }
 
 .termscond span{
@@ -82,7 +92,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-top: 15px;
+    margin-top: 3%;
 }
 
 .submit1{
@@ -94,12 +104,16 @@
     color: black;
     background: #24ff00;
     border-radius: 8px;
-    font-family: 'Inter';
-    font-weight: 700;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
     cursor: pointer;
 }
-
+.submit1:hover{
+    box-shadow: 0px 4px 5px rgba(128, 128, 128, 0.591);
+}
 .submit2{
+    margin-top: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,8 +122,9 @@
     color: white;
     background: #454545;
     border-radius: 8px;
-    font-family: 'Inter';
-    font-weight: 700;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
     cursor: pointer;
 
 }
