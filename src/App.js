@@ -5,6 +5,8 @@ import EditProfile from './components/screens/EditProfile';
 import QuizReport from './components/screens/QuizReport';
 import CourseScreen from './components/screens/CourseScreen';
 import SuggestionForm from './components/screens/SuggestionForm';
+import Signup from './components/LoginSignup/Signup';
+import Login from './components/LoginSignup/Login';
 
 function App() {
   return (
@@ -14,7 +16,11 @@ function App() {
       {/* <EditProfile/> */}
       {/* <QuizReport/> */}
       {/* <CourseScreen/> */}
-      <SuggestionForm/>
+      {/* <SuggestionForm/> */}
+      <Signup />
+      <Login />
+
+      
     </div>
     
   );
