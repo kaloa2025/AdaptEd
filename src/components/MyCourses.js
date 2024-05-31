@@ -1,32 +1,47 @@
-import React from 'react'
-import '../styles/mycourses.css'
-import course1 from '../assests/course1.jpg'
+import React, { useEffect, useState } from 'react';
+import '../styles/mycourses.css';
 
-const courses = [
-    { id: 1, name: 'React for Beginners', instructor: 'John Doe', duration: '4 weeks',image:course1 },
-    { id: 2, name: 'Advanced React', instructor: 'Jane Smith', duration: '6 weeks' ,image:course1},
-    { id: 3, name: 'React Native', instructor: 'Bob Johnson', duration: '5 weeks' ,image:course1 },
-    { id: 4, name: 'JavaScript Essentials', instructor: 'Alice Brown', duration: '3 weeks',image:course1},
-  ];
+function MyCourses({ id }) {
+  const [courses, setCourses] = useState([]);
 
-function MyCourses() {
+  useEffect(() => {
+    async function fetchEnrolledCourses() {
+      try {
+        const response = await fetch(`http://localhost:3000/api/users/${id}/enrolled-courses`);
+        const data = await response.json();
+        setCourses(data.map(enrollment => ({
+          ...enrollment.courseId,
+          grade: enrollment.grade,
+          quizMarks: enrollment.quizMarks
+        })));
+      } catch (error) {
+        console.error('Error fetching enrolled courses:', error);
+      }
+    }
+    if (id) {
+      fetchEnrolledCourses();
+    }
+  }, [id]);
+
   return (
     <div className='Courcesbody'>
-        <p className='C-text'>My Courses</p>
-        <div className='course-container'>
-            <div className='course-list'>
-                 {courses.map(course => (
-                <div key={course.id} className="course-detail">
-                <img src={course.image} alt={course.name} className="course-image"/>
-                <p className='course-name'>{course.name}</p>
-                <p className='course-info'>Instructor: {course.instructor}</p>
-                <p className='course-info'>Duration: {course.duration}</p>
-                </div>
-            ))}
+      <p className='C-text'>My Courses</p>
+      <div className='course-container'>
+        <div className='course-list'>
+          {courses.map(course => (
+            <div key={course._id} className="course-detail">
+              <img src={course.thumbnailImage} alt={course.title} className="course-image"/>
+              <p className='course-name'>{course.title}</p>
+              <p className='course-info'>Instructor: {course.instructorName}</p>
+              <p className='course-info'>Duration: {course.duration}</p>
+              <p className='course-info'>Grade: {course.grade}</p>
+              <p className='course-info'>Quiz Marks: {course.quizMarks}</p>
             </div>
+          ))}
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default MyCourses
+export default MyCourses;

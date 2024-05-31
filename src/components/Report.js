@@ -27,12 +27,14 @@ function Report() {
         <p className='heading-path'>Path</p>
         <div className='topic-container'>
             <div className='topic-list'>
-                 {topics.map(topic => (
+                {topics.map(topic => (
                 <div key={topic.id} className="topic-detail">
-                <img src={topic.image} alt={topic.name} className="topic-image"/>
-                <p className='topic-name'>{topic.name}</p>
-                <p className='topic-info'>Instructor: {topic.instructor}</p>
-                <p className='topic-info'>Duration: {topic.duration}</p>
+                  <img src={topic.image} alt={topic.name} className="topic-image"/>
+                  <div className='topic-text-detail'>
+                    <p className='topic-name'>{topic.name}</p>
+                    <p className='topic-info'>Instructor: {topic.instructor}</p>
+                    <p className='topic-info'>Duration: {topic.duration}</p>
+                  </div>
                 </div>
             ))}
             </div>

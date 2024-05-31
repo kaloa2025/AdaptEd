@@ -7,31 +7,29 @@
     max-width: 900px;
     margin: 0%;
     padding: 0px;
-    overflow-x: auto;
-    white-space: nowrap;
     border-radius: 8px;
 }
 .topic-list{
     margin-top: 1%;
-    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%;
     display: flex;
-    overflow-x: auto;
-    padding: 0px;
-    
 }
 .topic-detail{
-    
-    padding-right: 3%;
-    margin: 1px;
-    min-width: 200px;
+    width: 100%;
+    margin: 0%;
 }
 .topic-list::-webkit-scrollbar {
     display: none;
   }
 .topic-image{
-    width: 90%;
-    height: 160px;
+    min-width:60% ;
     border-radius: 5%;
+    margin: 0%;
+}
+.topic-text-detail
+{
+    /* margin-right: 1px; */
 }
 .topic-image:hover
 {
@@ -54,7 +52,6 @@
     margin: 0%;
     margin-top: 2%;
 }
-
 
 .scoresheet{
     display: flex;
