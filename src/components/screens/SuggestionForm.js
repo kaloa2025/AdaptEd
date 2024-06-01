@@ -1,38 +1,84 @@
-import React from 'react'
-import NewSuggestionForm from '../NewSuggestionForm'
-import '../../styles/suggestionform.css'
+import React, { useState, useEffect } from 'react';
+import NewSuggestionForm from '../NewSuggestionForm';
+import '../../styles/suggestionform.css';
 
-import course1 from '../../assests/course1.jpg'
-const topics = [
-    { id: 1, name: 'React for Beginners', instructor: 'John Doe', duration: '4 weeks',image:course1 },
-    { id: 2, name: 'Advanced React', instructor: 'Jane Smith', duration: '6 weeks' ,image:course1},
-    { id: 3, name: 'React Native', instructor: 'Bob Johnson', duration: '5 weeks' ,image:course1 },
-    { id: 4, name: 'JavaScript Essentials', instructor: 'Alice Brown', duration: '3 weeks',image:course1},
-  ];
+function SuggestionForm() {
+  const [courses, setCourses] = useState([]);
+  
+  const [predictions, setPredictions] = useState([]);
 
-  function SuggestionForm() {
+  const fetchCourses = async () => {
+    const response = await fetch('/api/courses');
+    return response;
+  };
+  
+  const fetchPredictions = async () => {
+    const response = await fetch('/api/predictions');
+    return response;
+  };
+
+  useEffect(() => {
+    const fetchCoursesData = async () => {
+      try {
+        const coursesResponse = await fetchCourses();
+        const coursesData = await coursesResponse.json();
+        setCourses(coursesData);
+      } catch (error) {
+        console.error('Error fetching courses data:', error);
+      }
+    };
+
+    const fetchPredictionsData = async () => {
+      try {
+        const predictionsResponse = await fetchPredictions();
+        const predictionsData = await predictionsResponse.json();
+        setPredictions(predictionsData);
+      } catch (error) {
+        console.error('Error fetching predictions data:', error);
+      }
+    };
+
+    fetchCoursesData();
+    fetchPredictionsData();
+  }, []);
+
+  const filterCoursesByPrediction = () => {
+    if (predictions.length === 0 || courses.length === 0) {
+      return [];
+    }
+
+    const filteredCourses = courses.filter((course) =>
+      predictions.some((prediction) => course.score === prediction.score)
+    );
+    return filteredCourses;
+  };
+
   return (
     <div className='formcontainer'>
       <div className='form'>
         <NewSuggestionForm/>
       </div>
       <div>
-        <p className='course-heading'> Courses </p>
+        <p className='course-heading'>Courses</p>
         <div className='suggestion-topic-container'>
-            {topics.map(topic => (
-            <div key={topic.id} className="suggestion-topic-detail">
-            <img src={topic.image} alt={topic.name} className="suggestion-topic-image"/>
-            <div>
-            <p className='suggestion-topic-name'>{topic.name}</p>
-            <p className='suggestion-topic-info'>Instructor: {topic.instructor}</p>
-            <p className='suggestion-topic-info'>Duration: {topic.duration}</p>
-            </div>
-            </div>
-            ))}
-        </div>
+          {filterCoursesByPrediction().length > 0 ? (
+            filterCoursesByPrediction().map((course) => (
+              <div key={course.id} className="suggestion-topic-detail">
+                <img src={course.image} alt={course.name} className="suggestion-topic-image"/>
+                <div>
+                  <p className='suggestion-topic-name'>{course.name}</p>
+                  <p className='suggestion-topic-info'>Instructor: {course.instructor}</p>
+                  <p className='suggestion-topic-info'>Duration: {course.duration}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="no-courses-message">Fill form to get best suitable courses</p>
+          )}
         </div>
       </div>
-  )
+    </div>
+  );
 }
 
-export default SuggestionForm
+export default SuggestionForm;

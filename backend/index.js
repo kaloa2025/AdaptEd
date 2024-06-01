@@ -6,6 +6,7 @@ const app=express();
 const authRouter=require('./routes/authRoute')
 const userRouter = require('./routes/userRoute');
 const courseRouter=require('./routes/courses');
+const predictionRouter =require('./routes/predict');
 //Middleware
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cors());
 app.use('/api/auth',authRouter);
 app.use('/api/users',userRouter);
 app.use('/api/courses',courseRouter);
+app.use('/api/predict',predictionRouter);
 
 //MongoBD Connection
 mongoose.connect(process.env.MONGODB_URI).then(()=>console.log( 'Connected to MongoDB!')).catch((error)=>console.error('Failed to connect to mongoDB: ', error));
