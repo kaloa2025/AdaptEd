@@ -7,13 +7,14 @@ import joblib
 model = joblib.load('prediction_model.pkl')
 
 # Connect to MongoDB
-client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["Prediction"]
-collection = db["Data"]
+MONGODB_URI = 'mongodb+srv://aalok:21004@adapted.x6irkuo.mongodb.net/AdaptEd?retryWrites=true&w=majority&appName=AdaptEd'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client["AdaptEd"]
+collection = db["predictions"]
 
 # Define the Streamlit app
 def main():
-    st.title('Course Suggestion')
+    # st.title('Course Suggestion')
 
     try:
         # Query MongoDB for user data
@@ -21,16 +22,16 @@ def main():
 
         # Extract user information from MongoDB document
         if user_data:
-            level = user_data.get('level', 'Beginner')
-            languages = user_data.get('languages', 'Python')
-            project_interest = user_data.get('project_interest', 'Building websites and web applications')
-            goal = user_data.get('goal', 'To get a job in web development')
-            algorithm_comfort = user_data.get('algorithm_comfort', 'Very comfortable')
-            web_design_comfort = user_data.get('web_design_comfort', 'Very comfortable')
-            exciting_development = user_data.get('exciting_development', 'Creating visually appealing user interfaces')
-            frontend_frameworks = user_data.get('frontend_frameworks', 'React')
-            java_frameworks = user_data.get('java_frameworks', 'Spring')
-            problem_solving_approach = user_data.get('problem_solving_approach', 'I prefer visualizing the problem and solution')
+            level = user_data.get('programmingExperience', 'Beginner')
+            languages = user_data.get('programmingLanguages', 'Python')
+            project_interest = user_data.get('projectInterests', 'Building websites and web applications')
+            goal = user_data.get('learningGoal', 'To get a job in web development')
+            algorithm_comfort = user_data.get('algorithmComfort', 'Very comfortable')
+            web_design_comfort = user_data.get('designComfort', 'Very comfortable')
+            exciting_development = user_data.get('developmentTypeExcitement', 'Creating visually appealing user interfaces')
+            frontend_frameworks = user_data.get('frontendFrameworks', 'React')
+            java_frameworks = user_data.get('javaFrameworks', 'Spring')
+            problem_solving_approach = user_data.get('problemSolvingApproach', 'I prefer visualizing the problem and solution')
             age = user_data.get('age', 18)
 
             # Create a DataFrame with user input
@@ -51,19 +52,26 @@ def main():
             # Make prediction
             prediction = model.predict(input_data)
 
+            score=prediction[0]
+
             # Display prediction result
-            st.subheader('Suggested Course:')
-            suggested_course = "Java and DSA" if prediction[0] >= 0 and prediction[0] <= 5 else "Introduction to Web Development"
-            st.success(suggested_course)
+            # st.subheader('Suggested Course:')
+            # suggested_course = "Java and DSA" if prediction[0] >= 0 and prediction[0] <= 5 else "Introduction to Web Development"
+            # st.success(suggested_course)
 
             # Store the result in the destination database
-            dest_db = client["Prediction"]
-            result_collection = dest_db["course"]
-            result_document = {
-                'user_id': user_data['_id'],
-                'suggested_course': suggested_course
-            }
-            result_collection.insert_one(result_document)
+            dest_db = client["AdaptEd"]
+            result_collection = dest_db["predictions"]
+            # result_document = {
+            #     'user_id': user_data['_id'],
+            #     'suggested_course': suggested_course
+            # }
+            result_collection.update_one(
+                {"_id": user_data["_id"]},
+                {"$set": {"score": score}}
+            )
+            st.write("Score updated successfully.")
+            # result_collection.insert_one(result_document)
 
         else:
             st.write("No user data found in MongoDB.")

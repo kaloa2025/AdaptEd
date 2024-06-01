@@ -1,4 +1,6 @@
 const express = require('express');
+const { exec } = require('child_process');
+const bodyParser = require('body-parser');
 const router = express.Router();
 const Prediction = require('../models/predictionModel');
 
@@ -18,8 +20,24 @@ router.get('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
     try {
-        const { programmingExperience, programmingLanguages, projectInterests, learningGoal, algorithmComfort, designComfort, developmentTypeExcitement, frontendFrameworks, javaFrameworks, problemSolvingApproach } = req.body;
-        const age = req.body.age || '';
+        const { 
+            age, 
+            programmingExperience, 
+            programmingLanguages, 
+            projectInterests, 
+            learningGoal, 
+            algorithmComfort, 
+            designComfort, 
+            developmentTypeExcitement, 
+            frontendFrameworks, 
+            javaFrameworks, 
+            problemSolvingApproach 
+        } = req.body;
+
+        if (!age || !programmingExperience || !programmingLanguages || !projectInterests || !learningGoal || !algorithmComfort || !designComfort || !developmentTypeExcitement || !frontendFrameworks || !javaFrameworks || !problemSolvingApproach) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
         const prediction = new Prediction({
             age,
             programmingExperience,
@@ -33,12 +51,23 @@ router.put('/', async (req, res) => {
             javaFrameworks,
             problemSolvingApproach
         });
-        const savedPrediction = await prediction.save();
 
-        res.status(201).json(savedPrediction);
+        const savedPrediction = await prediction.save();
+        console.log('save complete');
+        exec('python3 predict.py', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error executing Python script: ${error}`);
+                return res.status(500).send('Error executing prediction.');
+            }
+
+            console.log(`Python script output: ${stdout}`);
+            res.status(201).json(savedPrediction);
+        });
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.error('Server Error:', error.message);
+        res.status(500).json({ message: error.message });
     }
 });
+
 
 module.exports = router;
