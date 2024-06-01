@@ -12,11 +12,15 @@ router.get('/', async (req, res) => {
             return res.status(404).json({ message: 'Prediction not found' });
         }
 
+        console.log('Latest Prediction Score:', latestPrediction.score);
+
+        // Send the score as part of the response
         res.json({ score: latestPrediction.score });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
+
 
 router.put('/', async (req, res) => {
     try {
@@ -54,13 +58,12 @@ router.put('/', async (req, res) => {
 
         const savedPrediction = await prediction.save();
         console.log('save complete');
-        exec('python3 predict.py', (error, stdout, stderr) => {
+        const scriptPath = ('../../AdaptEd/Prediction/predict.py');
+        exec(`python ${scriptPath}`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing Python script: ${error}`);
                 return res.status(500).send('Error executing prediction.');
             }
-
-            console.log(`Python script output: ${stdout}`);
             res.status(201).json(savedPrediction);
         });
     } catch (error) {

@@ -4,7 +4,13 @@ import pymongo
 import joblib
 
 # Load the pre-trained model
-model = joblib.load('prediction_model.pkl')
+
+# Load the model
+model = joblib.load('C:/Users/Lenovo/OneDrive/Desktop/adapted/Prediction/prediction_model.pkl')
+
+# Now you can use the model for predictions
+
+# model = joblib.load('Prediction\prediction_model.pkl')
 
 # Connect to MongoDB
 MONGODB_URI = 'mongodb+srv://aalok:21004@adapted.x6irkuo.mongodb.net/AdaptEd?retryWrites=true&w=majority&appName=AdaptEd'
@@ -15,7 +21,7 @@ collection = db["predictions"]
 # Define the Streamlit app
 def main():
     # st.title('Course Suggestion')
-
+    st.write("Update started")
     try:
         # Query MongoDB for user data
         user_data = collection.find_one()  # Assuming there's only one document in the collection
@@ -70,6 +76,7 @@ def main():
                 {"_id": user_data["_id"]},
                 {"$set": {"score": score}}
             )
+            print("Update complete")
             st.write("Score updated successfully.")
             # result_collection.insert_one(result_document)
 

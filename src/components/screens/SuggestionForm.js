@@ -13,7 +13,7 @@ function SuggestionForm() {
   };
   
   const fetchPredictions = async () => {
-    const response = await fetch('/api/predictions');
+    const response = await fetch('/api/predict');
     return response;
   };
 
@@ -46,11 +46,35 @@ function SuggestionForm() {
     if (predictions.length === 0 || courses.length === 0) {
       return [];
     }
+// Assuming courses is an array of objects with a 'score' property
+const filteredCourses = courses.filter(course =>
+  predictions.some(prediction => {
+    // Define the score ranges
+    const courseRange = getScoreRange(course.score);
+    const predictionRange = getScoreRange(prediction.score);
+    
+    // Check if the course score and prediction score lie in the same range
+    return courseRange === predictionRange;
+  })
+);
 
-    const filteredCourses = courses.filter((course) =>
-      predictions.some((prediction) => course.score === prediction.score)
-    );
-    return filteredCourses;
+// Function to determine the score range
+function getScoreRange(score) {
+  // Define score ranges here
+  // For example: 1-5, 6-10
+  if (score >= 1 && score <= 5) {
+    return '1-5';
+  } else if (score >= 6 && score <= 10) {
+    return '6-10';
+  } else {
+    // Handle other cases if necessary
+    return 'Other';
+  }
+}
+
+// Return the filtered courses
+return filteredCourses;
+
   };
 
   return (
@@ -60,6 +84,7 @@ function SuggestionForm() {
       </div>
       <div>
         <p className='course-heading'>Courses</p>
+        <p className='course-heading'> You scored {}</p>
         <div className='suggestion-topic-container'>
           {filterCoursesByPrediction().length > 0 ? (
             filterCoursesByPrediction().map((course) => (

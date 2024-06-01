@@ -179,7 +179,7 @@ const handleSubmit = async (e) => {
             <option value="">Select</option>
             <option value="Visualizing the problem and solution">I prefer visualizing the problem and solution</option>
             <option value="Breaking down complex problems into simpler ones">I enjoy breaking down complex problems into simpler ones</option>
-            <option value="Experimenting and iterate on solutions quickly">I like to experiment and iterate on solutions quickly</option>
+            <option value="Experimenting and iterating on solutions quickly">I like to experiment and iterate on solutions quickly</option>
             <option value="Following a structured and logical approach">I prefer to follow a structured and logical approach</option>
         </select>
     </div>
