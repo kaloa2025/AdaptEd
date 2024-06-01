@@ -14,5 +14,8 @@ Link{
 }
 .nav{
     display: flex;
-    column-gap: 70%;
+    column-gap: 78%;
+}
+.back{
+    margin-top: 3%;
 }

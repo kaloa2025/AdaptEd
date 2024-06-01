@@ -16,6 +16,7 @@ const courseSchema = new Schema({
     instructorName: { type: String, required: true },
     duration: { type: String, required: true },
     description: { type: String, required: true },
+    score: { type: Number, required: true },
     modules: [moduleSchema]
 }, { timestamps: true });
 

@@ -4,6 +4,7 @@ import '../../styles/dashboard.css'
 import Suggestion from '../Suggestion.js'
 import MyCourses from '../MyCourses.js'
 import { useParams } from 'react-router-dom'
+import AllCourses from '../AllCourses.js'
 
 function Dashboard() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ function Dashboard() {
             <div className='container-column'>
                 <div className=''><Suggestion/></div>
                 <div className=''><MyCourses id={id}/></div>
+                <div className=''><AllCourses id={id}/></div>
             </div>
     </div>
   )

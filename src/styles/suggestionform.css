@@ -62,3 +62,11 @@
     width: 50%;
     height: fit-content;
 }
+.back{
+    margin-left: 1%;
+    width: 5%;
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: small;
+    cursor: pointer;
+}

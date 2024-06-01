@@ -43,11 +43,35 @@ router.get('/:id', async (req, res) => {
 
   router.get('/:id/enrolled-courses', async (req, res) => {
     try {
-      const user = await User.findById(req.params.id).populate('enrolledCourses.courseId');
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      res.json(user.enrolledCourses);
+        const user = await User.findById(req.params.id).populate('enrolledCourses.courseId');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user.enrolledCourses);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+
+
+});
+
+  router.post('/update', async (req, res) => {
+    try {
+      const { userId, courseId, grade, quizMarks } = req.body;
+
+      // Update user's enrolled course with quiz marks and grade
+      await User.updateOne(
+        { _id: userId, 'enrolledCourses.courseId': courseId },
+        { $set: { 'enrolledCourses.$.grade': grade, 'enrolledCourses.$.quizMarks': quizMarks } }
+      );
+
+      // Update user's enrollment status for the course
+      await Course.updateOne(
+        { _id: courseId },
+        { $addToSet: { enrolledUsers: userId } }
+      );
+
+      res.status(200).json({ message: 'User data updated successfully' });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

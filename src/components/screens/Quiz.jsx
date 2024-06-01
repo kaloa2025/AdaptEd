@@ -1,10 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
-import "../styles/quiz.css"
-import { data } from '../assests/data'
+import '../../styles/quiz.css'
+import { data } from '../../assests/data'
+import { Link, useParams } from 'react-router-dom'
 
 const Quiz = () => {
-
+    const { userId, courseId } = useParams();
     let [index, setIndex] = useState(0);
     let [question, setQuestion] = useState(data[index]);
     let [lock, setLock] = useState(false);
@@ -54,7 +55,7 @@ const Quiz = () => {
         if(score > 8){
             setGroup("A");
         }
-        else if(score > 5){
+        else if(score > 4){
             setGroup("B");
         }
         else{
@@ -70,31 +71,59 @@ const Quiz = () => {
         setResult(false);
     }
 
+    useEffect(() => {
+        const saveQuizResults = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/users/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        userId,
+                        courseId: courseId,
+                        grade: group,
+                        quizMarks: score,
+                    }),
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to update quiz results');
+                }
+                console.log('Quiz results updated successfully');
+            } catch (error) {
+                console.error('Error updating quiz results:', error.message);
+            }
+        };
+        if (score) {
+            saveQuizResults();
+        }
+    }, [score, courseId, userId, group]);
+
     return (
         <>
-        {/* <h1 className='title'>AdaptEd</h1> */}
-        <div className='container'>
+        <div className='q-container'>
 
 
             {resut ?
                 <>
-                    <h2>You scored {score} out of {data.length}</h2>
-                    <h2>You Lies in {group} group</h2>
-                    <button onClick={reset}> Reset </button>
+                    <Link to={`/report/userId/courseId`}><button>Get Report</button></Link>
                 </>
                 :
                 <>
                     <div className="que">
                         <h2>{index + 1}. {question.question}</h2>
                     </div>
+                    
                     <ul>
                         <li ref={Opt1} onClick={(e) => { checkAns(e, 1) }}>{question.option1}</li>
                         <li ref={Opt2} onClick={(e) => { checkAns(e, 2) }}>{question.option2}</li>
                         <li ref={Opt3} onClick={(e) => { checkAns(e, 3) }}>{question.option3}</li>
                         <li ref={Opt4} onClick={(e) => { checkAns(e, 4) }}>{question.option4}</li>
                     </ul>
-                    <button onClick={next}>Save and Next</button>
-                    <div className="index">{index + 1}  of {data.length} questions</div>
+                    <div className='bottom'>
+                        <div className="index">{index + 1}  of {data.length} questions</div>
+                        <button onClick={next}>Save and Next</button>
+                    </div>
                 </>}
 
         </div>

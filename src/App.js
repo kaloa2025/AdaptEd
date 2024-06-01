@@ -1,6 +1,7 @@
 import './App.css';
 import Dashboard from './components/screens/Dashboard';
 import EditProfile from './components/screens/EditProfile';
+import Quiz from './components/screens/Quiz';
 import QuizReport from './components/screens/QuizReport';
 import CourseScreen from './components/screens/CourseScreen';
 import SuggestionForm from './components/screens/SuggestionForm';
@@ -18,16 +19,19 @@ function App() {
   const handleLogout = async () => {
     await logout();
   };
-
+  const handleGoBack = () => {
+    window.history.back();
+  };
   const {isAuthenticated}=useAuth();
 
   return (
     <div>
       <div className='nav'>
         <p className='brand'>AdaptEd</p>
-        <Button onClick={handleLogout} style={{ width: 155, marginTop: '2%', justifyContent: 'right' }}>
+        <div className='back' onClick={handleGoBack}>Go back</div>
+        {/* <Button onClick={handleLogout} style={{ width: 155, marginTop: '2%', justifyContent: 'right' }}>
                 Logout
-        </Button>
+        </Button> */}
       </div>
       <Router>
         <Routes>
@@ -36,10 +40,10 @@ function App() {
           <Route path='/login' element={ !isAuthenticated ? <Login/> : <Navigate to={`/dashboard/${userData._id}`}/>}></Route>
           <Route path='/editprofile/:id' element={<EditProfile/>}></Route>
           <Route path='/dashboard/:id' element={<Dashboard/>}></Route>
-          <Route path='/course/:id' element={<CourseScreen/>}></Route>
-          <Route path='/report/:id' element={<QuizReport/>}></Route>
+          <Route path='/course/:userId/:courseId' element={<CourseScreen/>}></Route>
+          <Route path='/report/:userId/courseId' element={<QuizReport/>}></Route>
           <Route path='/suggestion' element={<SuggestionForm/>}></Route>
-          {/* <Route path='/quiz' element={<Quiz/>}></Route> */}
+          <Route path='/quiz/:userId/courseId' element={<Quiz/>}></Route>
         </Routes>
       </Router>
     </div>

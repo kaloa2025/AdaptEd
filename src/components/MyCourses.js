@@ -23,6 +23,15 @@ function MyCourses({ id }) {
     }
   }, [id]);
 
+  if(courses.length===0){
+      return (
+        <div className='Courcesbody'>
+          <p className='C-text'>My Courses</p>
+            <p className='course-name'> Find suggestions to get best suitable courses for you!</p>
+        </div>
+      );
+    }
+
   return (
     <div className='Courcesbody'>
       <p className='C-text'>My Courses</p>
