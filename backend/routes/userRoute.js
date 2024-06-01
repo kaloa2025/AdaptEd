@@ -55,26 +55,37 @@ router.get('/:id', async (req, res) => {
 
 });
 
-  router.post('/update', async (req, res) => {
-    try {
-      const { userId, courseId, grade, quizMarks } = req.body;
+router.post('/update', async (req, res) => {
+  try {
+    const { userId, courseId, grade, quizMarks } = req.body;
 
-      // Update user's enrolled course with quiz marks and grade
-      await User.updateOne(
-        { _id: userId, 'enrolledCourses.courseId': courseId },
-        { $set: { 'enrolledCourses.$.grade': grade, 'enrolledCourses.$.quizMarks': quizMarks } }
-      );
+    console.log('Received request to update user data:', req.body);
 
-      // Update user's enrollment status for the course
-      await Course.updateOne(
-        { _id: courseId },
-        { $addToSet: { enrolledUsers: userId } }
-      );
-
-      res.status(200).json({ message: 'User data updated successfully' });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new Error('User not found');
     }
-  });
+
+    console.log('User found:', user);
+
+    const courseIndex = user.enrolledCourses.findIndex(course => course.courseId.toString() === courseId);
+    console.log('Course index:', courseIndex);
+
+    if (courseIndex !== -1) {
+      user.enrolledCourses[courseIndex].grade = grade;
+      user.enrolledCourses[courseIndex].quizMarks = quizMarks;
+    } else {
+      user.enrolledCourses.push({ courseId, grade, quizMarks });
+    }
+
+    await user.save();
+    console.log('User data updated successfully:', user);
+
+    res.status(200).json({ message: 'User data updated successfully' });
+  } catch (error) {
+    console.error('Error updating user data:', error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
 
 module.exports = router;

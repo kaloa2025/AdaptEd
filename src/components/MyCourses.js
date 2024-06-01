@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/mycourses.css';
+import { Link } from 'react-router-dom';
 
 function MyCourses({ id }) {
   const [courses, setCourses] = useState([]);
@@ -39,7 +40,7 @@ function MyCourses({ id }) {
         <div className='course-list'>
           {courses.map(course => (
             <div key={course._id} className="course-detail">
-              <img src={course.thumbnailImage} alt={course.title} className="course-image"/>
+              <Link to={`/course/${id}/${course._id}`}><img src={course.thumbnailImage} alt={course.title} className="course-image"/></Link>
               <p className='course-name'>{course.title}</p>
               <p className='course-info'>Instructor: {course.instructorName}</p>
               <p className='course-info'>Duration: {course.duration}</p>

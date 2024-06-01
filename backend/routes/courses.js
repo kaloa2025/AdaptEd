@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { thumbnailImage, title, instructorName, duration, description, score, modules } = req.body;
+    const { thumbnailImage, title, instructorName, duration, description, score, modules, quiz } = req.body;
   
     try {
       const newCourse = new Course({
@@ -23,7 +23,8 @@ router.post('/', async (req, res) => {
         duration,
         description,
         score,
-        modules
+        modules,
+        quiz
       });
   
       const savedCourse = await newCourse.save();
@@ -42,6 +43,36 @@ router.post('/', async (req, res) => {
       res.json(course);
     } catch (error) {
       res.status(500).json({ message: error.message });
+    }
+  });
+
+  router.get('/:courseId/quiz', async (req, res) => {
+    try {
+      const course = await Course.findById(req.params.courseId).select('quiz');
+      if (!course) {
+        return res.status(404).json({ message: 'Course not found' });
+      }
+      res.json(course.quiz);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+
+  router.patch('/:id/quiz', async (req, res) => {
+    const { quiz } = req.body;
+  
+    try {
+      const course = await Course.findById(req.params.id);
+      if (!course) {
+        return res.status(404).json({ message: 'Course not found' });
+      }
+  
+      course.quiz.push(...quiz);
+      const updatedCourse = await course.save();
+      res.json(updatedCourse);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
   });
 

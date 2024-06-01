@@ -36,7 +36,7 @@ function AllCourses() {
         <div className='course-list'>
           {courses.map(course => (
             <div key={course._id} className="course-detail">
-              <Link to={`/course/id/${course._id}`}><img src={course.thumbnailImage} alt={course.title} className="course-image"/></Link>
+              <Link to={`/course/${id}/${course._id}`}><img src={course.thumbnailImage} alt={course.title} className="course-image"/></Link>
               <p className='course-name'>{course.title}</p>
               <p className='course-info'>Instructor: {course.instructorName}</p>
               <p className='course-info'>Duration: {course.duration}</p>

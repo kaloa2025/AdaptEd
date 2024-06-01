@@ -4,7 +4,7 @@ import Report from '../Report'
 import { useParams } from 'react-router-dom'
 
 function QuizReport() {
-  const { userId, courseId } = useParams();
+  const {userId,courseId}=useParams(); 
   return (
     <div>
         <div className='container-row'>

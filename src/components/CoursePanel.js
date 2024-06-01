@@ -45,14 +45,14 @@ function CoursePanel({ userId, courseId }) {
 
   return (
     <div className='container'>
-      <div> <img src={courseData.thumbnailImage} className='display_Image' alt={courseData.title} /> </div>
+      <div><Link to={`/course/${userId}/${courseId}`}><img src={courseData.thumbnailImage} className='display_Image' alt={courseData.title} /></Link> </div>
       <p className='courseName'>{courseData.title}</p>
       <p className='author'>{courseData.instructorName}</p>
       <p className='duration'>{courseData.duration}</p>
       <p className='description'>{courseData.description}</p>
-      <Link to={`/quiz/userId/courseId`}><button className='quizButton'>Take Quiz</button></Link>
+      <Link to={`/quiz/${userId}/${courseId}`}><button className='quizButton'>Take Quiz</button></Link>
       <br></br>
-      <Link to={`/report/userId/courseId`}><button className='reportButton'>Report</button></Link>
+      <Link to={`/report/${userId}/${courseId}`}><button className='reportButton'>Report</button></Link>
       <br></br>
       <p className='notice'>* You can enroll in the course after taking our quiz</p>
     </div>

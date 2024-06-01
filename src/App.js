@@ -41,9 +41,9 @@ function App() {
           <Route path='/editprofile/:id' element={<EditProfile/>}></Route>
           <Route path='/dashboard/:id' element={<Dashboard/>}></Route>
           <Route path='/course/:userId/:courseId' element={<CourseScreen/>}></Route>
-          <Route path='/report/:userId/courseId' element={<QuizReport/>}></Route>
+          <Route path='/report/:userId/:courseId' element={<QuizReport/>}></Route>
           <Route path='/suggestion' element={<SuggestionForm/>}></Route>
-          <Route path='/quiz/:userId/courseId' element={<Quiz/>}></Route>
+          <Route path='/quiz/:userId/:courseId' element={<Quiz/>}></Route>
         </Routes>
       </Router>
     </div>
