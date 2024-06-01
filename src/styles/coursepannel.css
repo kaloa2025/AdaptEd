@@ -70,7 +70,11 @@
     cursor: pointer;
 }
 .display_Image{
-    height: 180px;
     width: 100%;
     border-radius: 15px;
+}
+.notice{
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: x-small;
 }

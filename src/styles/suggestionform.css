@@ -6,13 +6,13 @@
     display: flex;
     column-gap: 10%;
 }
-.topic-container
+.suggestion-topic-container
 {
     width: 100%;
     padding: 4px;
     border-radius: 8px;
 }
-.topic-detail{
+.suggestion-topic-detail{
     padding-right: 3%;
     margin: 1px;
     display: flex;
@@ -20,15 +20,15 @@
     margin-bottom: 5%;
     width: 90%;
 }
-.topic-container::-webkit-scrollbar {
+.suggestion-topic-container::-webkit-scrollbar {
     display: none;
   }
-.topic-image{
-    width: 35%;
-    height : 120px;
+.suggestion-topic-image{
+    width: 33%;
+    height : 100px;
     border-radius: 10px;
 }
-.topic-image:hover
+.suggestion-topic-image:hover
 {
     cursor: pointer;
     mask-image: url('../assests/play.png');
@@ -36,13 +36,13 @@
     mask-size: 30%;
     mask-repeat: no-repeat;
 }
-.topic-info{
+.suggestion-topic-info{
     margin: 1%;
     font-family: Inter,'sans-serif';
     font-weight: 300;
     font-size: small;
 }
-.topic-name{
+.suggestion-topic-name{
     font-family: Inter,'sans-serif';
     font-weight: 500;
     font-size: medium;
@@ -61,4 +61,12 @@
     margin-left: 5%;
     width: 50%;
     height: fit-content;
+}
+.back{
+    margin-left: 1%;
+    width: 5%;
+    font-family: Inter,'sans-serif';
+    font-weight: 300;
+    font-size: small;
+    cursor: pointer;
 }

@@ -19,8 +19,6 @@
     display: none;
   }
 .topic-image{
-    width: 35%;
-    height : 120px;
     border-radius: 10px;
 }
 .topic-image:hover
@@ -45,4 +43,7 @@
     margin-top: 8%;
     margin-bottom: 5%;
 }
-
+.ref{
+    font-size: small;
+    color: #454545;
+}

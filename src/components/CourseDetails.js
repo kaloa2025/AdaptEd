@@ -1,28 +1,56 @@
-import React from 'react'
-import '../styles/coursedetails.css'
-import course1 from '../assests/course1.jpg'
-const topics = [
-    { id: 1, name: 'React for Beginners', instructor: 'John Doe', duration: '4 weeks',image:course1 },
-    { id: 2, name: 'Advanced React', instructor: 'Jane Smith', duration: '6 weeks' ,image:course1},
-    { id: 3, name: 'React Native', instructor: 'Bob Johnson', duration: '5 weeks' ,image:course1 },
-    { id: 4, name: 'JavaScript Essentials', instructor: 'Alice Brown', duration: '3 weeks',image:course1},
-  ];
+import React, { useEffect, useState } from 'react';
+import '../styles/coursedetails.css';
 
-function CourseDetails() {
+function CourseDetails({ userId, courseId }) {
+  const [modules, setModules] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchModules() {
+      try {
+        const response = await fetch(`http://localhost:3000/api/courses/${courseId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch course modules');
+        }
+        const courseData = await response.json();
+        setModules(courseData.modules);
+      } catch (error) {
+        setError(error.message);
+        console.error('Error fetching course modules:', error.message);
+      }
+    }
+
+    if (courseId) {
+      fetchModules();
+    }
+  }, [courseId]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!modules || modules.length === 0) {
+    return <div>No modules found.</div>;
+  }
+
   return (
     <div className='topic-container'>
-            {topics.map(topic => (
-            <div key={topic.id} className="topic-detail">
-            <img src={topic.image} alt={topic.name} className="topic-image"/>
-            <div>
-            <p className='topic-name'>{topic.name}</p>
-            <p className='topic-info'>Instructor: {topic.instructor}</p>
-            <p className='topic-info'>Duration: {topic.duration}</p>
-            </div>
-            </div>
-        ))}
+      {modules.map(module => (
+        <div key={module._id} className="topic-detail">
+          <a href={module.resourceLink} target="_blank" rel="noopener noreferrer">
+            <img src={module.thumbnailImage} alt={module.title} className="topic-image"/>
+          </a>
+          <div>
+            <p className='topiac-name'>{module.title}</p>
+            <p className='topic-info'>Instructor: {module.instructorName}</p>
+            <p className='topic-info'>Duration: {module.duration}</p>
+            <p className='topic-info'>Grade: {module.grade}</p>
+            <a href={module.resourceLink} target="_blank" rel="noopener noreferrer" className='ref'>Get Started</a>
+          </div>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default CourseDetails
+export default CourseDetails;

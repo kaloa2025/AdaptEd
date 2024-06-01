@@ -18,14 +18,14 @@ const topics = [
       </div>
       <div>
         <p className='course-heading'> Courses </p>
-        <div className='topic-container'>
+        <div className='suggestion-topic-container'>
             {topics.map(topic => (
-            <div key={topic.id} className="topic-detail">
-            <img src={topic.image} alt={topic.name} className="topic-image"/>
+            <div key={topic.id} className="suggestion-topic-detail">
+            <img src={topic.image} alt={topic.name} className="suggestion-topic-image"/>
             <div>
-            <p className='topic-name'>{topic.name}</p>
-            <p className='topic-info'>Instructor: {topic.instructor}</p>
-            <p className='topic-info'>Duration: {topic.duration}</p>
+            <p className='suggestion-topic-name'>{topic.name}</p>
+            <p className='suggestion-topic-info'>Instructor: {topic.instructor}</p>
+            <p className='suggestion-topic-info'>Duration: {topic.duration}</p>
             </div>
             </div>
             ))}

@@ -3,7 +3,6 @@
 
 .container-row{
     display: grid;
-    display: flex;
     column-gap: 3%;
 }
 .container-column{

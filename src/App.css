@@ -8,4 +8,14 @@
  font-size: medium;
  font-weight: 600;
 }
-
+Link{
+    font-style: normal;
+    text-decoration: none;
+}
+.nav{
+    display: flex;
+    column-gap: 78%;
+}
+.back{
+    margin-top: 3%;
+}
