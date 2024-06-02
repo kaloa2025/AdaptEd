@@ -135,26 +135,29 @@ adapted-course-recommendation/
 ```
 
 Happy coding! 😊
-```
 
 This README provides a comprehensive overview of your project, including installation and usage instructions, which should help users get started quickly. Make sure to replace placeholders like `your-username` and `your_mongodb_connection_string` with the actual values.
+---
 
-See Working Here
+## See Working Here
 https://youtu.be/EpBzKjrsVRE
 
-SCREENSHOTS
+### SCREENSHOTS
+---
 ![Pre_Planning3](https://github.com/kaloa2025/AdaptEd/assets/113432220/edfeec36-5c9e-43ef-814f-8c414e5d2a4e)
 ![Pre_Planning](https://github.com/kaloa2025/AdaptEd/assets/113432220/e68b2f97-e33e-4045-a0f2-2a2ab2f97203)
 ![Pre_Planing2](https://github.com/kaloa2025/AdaptEd/assets/113432220/d32debcb-0556-4177-8da2-b7592f724357)
-
+---
 ![Figma](https://github.com/kaloa2025/AdaptEd/assets/113432220/0c624b09-acfe-45d3-8d0f-bded2c9fb18b)
 <img width="820" alt="DB_Structure" src="https://github.com/kaloa2025/AdaptEd/assets/113432220/87fc483e-f52c-48c4-b014-72ed9c09d469">
-
+---
 ![Landing_Page](https://github.com/kaloa2025/AdaptEd/assets/113432220/3a5d7fd6-f03e-42b1-a459-35a1069efb29)
 ![Course_Detail_page](https://github.com/kaloa2025/AdaptEd/assets/113432220/28c12659-328e-40f8-becb-f85240448aed)
 ![Suggested_Page](https://github.com/kaloa2025/AdaptEd/assets/113432220/d6923393-3443-4bbb-8729-921d6559a752)
 ![Screenshot 2024-06-02 220403](https://github.com/kaloa2025/AdaptEd/assets/113432220/6f06dc7c-6726-4a20-a3ba-99d88a6065f8)
-
+---
 ![Python_Folder_Structure](https://github.com/kaloa2025/AdaptEd/assets/113432220/cc36849c-0e36-42ad-b228-d254fc58ef8a)
 ![Project_Structure](https://github.com/kaloa2025/AdaptEd/assets/113432220/7f7692e6-75ff-4cfa-b51c-51f5b920d729)
 ![Terminals](https://github.com/kaloa2025/AdaptEd/assets/113432220/aa0730e2-ff9a-43b6-a4fd-518c48a55889)
+---
+```
