@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/report.css'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function Report() {
   const { userId, courseId } = useParams();
@@ -76,6 +76,9 @@ function Report() {
         </div>
         <div className='grade'>
           Level {userCourse.grade}
+        </div>
+        <div>
+          <Link to={`/dashboard/${userId}`}><button className='dash_but'>Dashboard</button></Link>
         </div>
       </div>
       <div className='path'>

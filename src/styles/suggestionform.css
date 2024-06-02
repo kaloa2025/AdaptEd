@@ -70,3 +70,16 @@
     font-size: small;
     cursor: pointer;
 }
+.getbut{
+    color: rgb(34, 34, 34);
+    background-color: #24FF00;
+    border-style: none;
+    margin-top: 5%;
+    padding:8%;
+    width: 100%;
+    border-radius: 10px;
+    font-family: Inter,'sans-serif';
+    font-weight: 500;
+    font-size: small;
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate} fro
 import Prelog from './components/screens/Prelog';
 import { useAuth } from './contexts/AuthContext';
 import { Button } from 'antd';
+import Scourses from './components/screens/Scourses';
 
 function App() {
   
@@ -42,8 +43,9 @@ function App() {
           <Route path='/dashboard/:id' element={<Dashboard/>}></Route>
           <Route path='/course/:userId/:courseId' element={<CourseScreen/>}></Route>
           <Route path='/report/:userId/:courseId' element={<QuizReport/>}></Route>
-          <Route path='/suggestion' element={<SuggestionForm/>}></Route>
+          <Route path='/:id/suggestion' element={<SuggestionForm/>}></Route>
           <Route path='/quiz/:userId/:courseId' element={<Quiz/>}></Route>
+          <Route path='/:id/suggested_courses' element={<Scourses/>}></Route>
         </Routes>
       </Router>
     </div>

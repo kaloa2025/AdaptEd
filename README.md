@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# AdaptEd Course Recommendation System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web application designed to recommend courses based on a user's programming background and preferences. The application uses a machine learning model to predict the best courses for users, which are then displayed in a user-friendly interface. The project includes a backend server, a frontend application, and a Python-based prediction service.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- User Authetication
+- User can input their programming background and preferences.
+- Machine learning model predicts a score based on user input.
+- Courses are recommended based on the predicted score.
+- User gives a quiz prior to enrolling in a course.
+- Quiz generates a score which categorizes user in different levels.
+- Based on levels user are suggested to start course from specific Lecture number.
+- User-friendly interface to display recommended courses.
+- Easy Navigation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend**: React.js, CSS
+- **Backend**: Node.js, Express
+- **Machine Learning**: Python (pandas, joblib)
+- **Database**: MongoDB (Atlas)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js and npm installed
+- Python installed
+- MongoDB database set up
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Steps
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository:**
 
-### `npm run eject`
+```bash
+git clone https://github.com/your-username/adapted-course-recommendation.git
+cd adapted-course-recommendation
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Set up the backend:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd backend
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Set up the frontend:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd ../frontend
+npm install
+```
 
-## Learn More
+4. **Set up the Python environment:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd ../Prediction
+pip install -r requirements.txt
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Load the machine learning model:**
 
-### Code Splitting
+Place the `prediction_model.pkl` file in the `Prediction` directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. **Set up environment variables:**
 
-### Analyzing the Bundle Size
+Create a `.env` file in the `backend` directory with the following content:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+MONGODB_URI=your_mongodb_connection_string
+```
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Running the Backend Server
 
-### Advanced Configuration
+```bash
+cd backend
+nodemon index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Running the Frontend Application
 
-### Deployment
+```bash
+cd frontend
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Running the Prediction Service
 
-### `npm run build` fails to minify
+```bash
+cd Prediction
+streamlit run predict.py
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+
+```
+adapted-course-recommendation/
+│
+├── backend/
+│   ├── routes/
+│   ├── models/
+│   ├── controllers/
+│   ├── index.js
+│   └── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+|   |   |   |── screens/
+│   │   ├── contexts/
+│   │   ├── hooks/
+│   │   ├── styles/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── public/
+│   └── package.json
+│
+├── Prediction/
+│   ├── predict.py
+│   └── prediction_model.pkl
+│
+├── README.md
+└── .gitignore
+```
+
+Happy coding! 😊
+
+This README provides a comprehensive overview of your project, including installation and usage instructions, which should help users get started quickly. Make sure to replace placeholders like `your-username` and `your_mongodb_connection_string` with the actual values.
+---
+
+## See Working Here
+https://youtu.be/EpBzKjrsVRE
+
+### SCREENSHOTS
+---
+![Pre_Planning3](https://github.com/kaloa2025/AdaptEd/assets/113432220/edfeec36-5c9e-43ef-814f-8c414e5d2a4e)
+![Pre_Planning](https://github.com/kaloa2025/AdaptEd/assets/113432220/e68b2f97-e33e-4045-a0f2-2a2ab2f97203)
+![Pre_Planing2](https://github.com/kaloa2025/AdaptEd/assets/113432220/d32debcb-0556-4177-8da2-b7592f724357)
+---
+![Figma](https://github.com/kaloa2025/AdaptEd/assets/113432220/0c624b09-acfe-45d3-8d0f-bded2c9fb18b)
+<img width="820" alt="DB_Structure" src="https://github.com/kaloa2025/AdaptEd/assets/113432220/87fc483e-f52c-48c4-b014-72ed9c09d469">
+---
+![Landing_Page](https://github.com/kaloa2025/AdaptEd/assets/113432220/3a5d7fd6-f03e-42b1-a459-35a1069efb29)
+![Course_Detail_page](https://github.com/kaloa2025/AdaptEd/assets/113432220/28c12659-328e-40f8-becb-f85240448aed)
+![Suggested_Page](https://github.com/kaloa2025/AdaptEd/assets/113432220/d6923393-3443-4bbb-8729-921d6559a752)
+![Screenshot 2024-06-02 220403](https://github.com/kaloa2025/AdaptEd/assets/113432220/6f06dc7c-6726-4a20-a3ba-99d88a6065f8)
+---
+![Python_Folder_Structure](https://github.com/kaloa2025/AdaptEd/assets/113432220/cc36849c-0e36-42ad-b228-d254fc58ef8a)
+![Project_Structure](https://github.com/kaloa2025/AdaptEd/assets/113432220/7f7692e6-75ff-4cfa-b51c-51f5b920d729)
+![Terminals](https://github.com/kaloa2025/AdaptEd/assets/113432220/aa0730e2-ff9a-43b6-a4fd-518c48a55889)
+---
+```

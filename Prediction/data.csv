@@ -1,4 +1,4 @@
-Level,Age,Languages,ProjectInterest,Goal,AlgorithmComfort,WebDesignComfort,ExcitingDevelopment,FrontendFrameworks,JavaFrameworks,ProblemSolvingApproach,result
+Level,Age,Languages,ProjectInterest,Goal,AlgorithmComfort,WebDesignComfort,ExcitingDevelopment,FrontendFrameworks,JavaFrameworks,ProblemSolvingApproach,score
 Beginner,20,"HTML/CSS, Python",Websites and web applications,Get a job in web development,Somewhat comfortable,Very comfortable,Creating visually appealing user interfaces,React,None,Visualizing the problem and solution,6
 Intermediate,25,"JavaScript, Java",Algorithms and data structures,Get a job in software development focusing on data structures and algorithms,Very comfortable,Somewhat comfortable,Solving complex algorithmic problems,Angular,Spring,Breaking down complex problems into simpler ones,8
 Advanced,30,"C++, Python",Data analysis and machine learning,Enhance current skills,Very comfortable,Not comfortable at all,Working on backend services and APIs,None,Hibernate,Experimenting and iterating on solutions quickly,9

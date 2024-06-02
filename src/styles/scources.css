@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@100;200;400;500;700;900&display=swap');
+
+.scources{
+    display: flex;
+    column-gap: 5%;
+    font-family: Inter,'sans-serif';
+}
+
+.scources .course-heading1{
+    color: white;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10%;
+    border-radius: 8px;
+    background-color: #454545;
+}
+.scources .score{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 5%;
+    font-size: xx-large;
+    background-color: rgb(43, 43, 43);
+    border-radius: 8px;
+}
+.scources .scoredisplay{
+    margin-left: 5%;
+    width: 12%;
+    font-family: Inter,'sans-serif';
+    font-weight: 600;
+    font-size: x-large;
+    color: #24FF00;
+    border-radius: 8px;
+}
+.scources .course-heading2{
+    color: white;
+    margin-top: 0%;
+    padding: 1%;
+    border-radius: 8px;
+    background-color: #454545;
+    font-family: Inter,'sans-serif';
+    font-weight: 400;
+    font-size: x-large;
+    width: 90%;
+}
+.scources .suggestion-topic-container{
+    width: 80%;
+}
+.scources .suggestion-topic-detail{
+    
+    border-style: solid;
+    border-width: 1px;
+    padding: 1%;
+    border-radius: 8px;
+    display: flex;
+    column-gap: 5%;
+}
+.scources .suggestion-topic-image{
+    width: auto;
+    height:auto;
+}
+.suggestion-topic-info{
+    width: 80%;
+}
+.suggestion-topic-name{
+    margin-top: 0%;
+    margin-bottom: 1%;
+    font-size: larger;
+}
+.scources .no-courses-message{
+
+}

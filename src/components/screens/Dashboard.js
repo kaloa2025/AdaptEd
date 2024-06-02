@@ -8,11 +8,12 @@ import AllCourses from '../AllCourses.js'
 
 function Dashboard() {
   const { id } = useParams();
+  console.log(id);
   return (
     <div className='container-row'>
         <div className='profileSection'><Profile id={id}/></div>
             <div className='container-column'>
-                <div className=''><Suggestion/></div>
+                <div className=''><Suggestion id={id}/></div>
                 <div className=''><MyCourses id={id}/></div>
                 <div className=''><AllCourses id={id}/></div>
             </div>

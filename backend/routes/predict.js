@@ -1,23 +1,14 @@
 const express = require('express');
 const { exec } = require('child_process');
-const bodyParser = require('body-parser');
 const router = express.Router();
 const Prediction = require('../models/predictionModel');
 
 router.get('/', async (req, res) => {
     try {
-        const latestPrediction = await Prediction.findOne().sort({ createdAt: -1 });
-
-        if (!latestPrediction) {
-            return res.status(404).json({ message: 'Prediction not found' });
-        }
-
-        console.log('Latest Prediction Score:', latestPrediction.score);
-
-        // Send the score as part of the response
-        res.json({ score: latestPrediction.score });
+        const prediction = await Prediction.findOne().sort({ createdAt: -1 });
+        res.json(prediction);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).send(error.message);
     }
 });
 
