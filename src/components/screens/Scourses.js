@@ -44,7 +44,7 @@ function Scourses(){
     } else {
       return [];
     }
-    return courses.filter(course => course.score >= rangeStart && course.score <= rangeEnd);
+    return courses.filter(course => course.score >= rangeStart);
   };
 
   return (
