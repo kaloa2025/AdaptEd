@@ -1,4 +1,4 @@
-# AdaptEd Course Recommendation System
+# AdaptEd
 
 This project is a web application designed to recommend courses based on a user's programming background and preferences. The application uses a machine learning model to predict the best courses for users, which are then displayed in a user-friendly interface. The project includes a backend server, a frontend application, and a Python-based prediction service.
 
@@ -150,6 +150,7 @@ https://youtu.be/EpBzKjrsVRE
 ---
 ![Figma](https://github.com/kaloa2025/AdaptEd/assets/113432220/0c624b09-acfe-45d3-8d0f-bded2c9fb18b)
 <img width="820" alt="DB_Structure" src="https://github.com/kaloa2025/AdaptEd/assets/113432220/87fc483e-f52c-48c4-b014-72ed9c09d469">
+![wireframe](https://github.com/kaloa2025/AdaptEd/assets/113432220/1c398cf4-078e-4f1f-84f6-10e67011ab40)
 ---
 ![Landing_Page](https://github.com/kaloa2025/AdaptEd/assets/113432220/3a5d7fd6-f03e-42b1-a459-35a1069efb29)
 ![Course_Detail_page](https://github.com/kaloa2025/AdaptEd/assets/113432220/28c12659-328e-40f8-becb-f85240448aed)
@@ -160,4 +161,3 @@ https://youtu.be/EpBzKjrsVRE
 ![Project_Structure](https://github.com/kaloa2025/AdaptEd/assets/113432220/7f7692e6-75ff-4cfa-b51c-51f5b920d729)
 ![Terminals](https://github.com/kaloa2025/AdaptEd/assets/113432220/aa0730e2-ff9a-43b6-a4fd-518c48a55889)
 ---
-```
