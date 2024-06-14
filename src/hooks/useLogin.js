@@ -11,7 +11,7 @@ const useLogin = () => {
         try{
             setError(null);
             setLoading(true);
-            const res=await fetch('http://localhost:3000/api/auth/login',{
+            const res=await fetch('https://adapt-ed-api.vercel.app/api/auth/login',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',
