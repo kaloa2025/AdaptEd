@@ -13,7 +13,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors(
     {
-        origin: ["https://adapt-ed-frontend.vercel.app/"],
+        origin: ["https://adapt-ed-frontend.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
