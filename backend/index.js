@@ -12,11 +12,11 @@ const predictionRouter =require('./routes/predict');
 dotenv.config();
 app.use(express.json());
 app.use(cors(
-    {
-        origin: ["https://adapt-ed-frontend.vercel.app"],
-        methods:["POST","GET"],
-        credentials:true
-    }
+    // {
+    //     origin: ["https://deploy-mern-1whq.vercel.app"],
+    //     methods:["POST","GET"],
+    //     credentials:true
+    // }
 ));
 
 //Route
