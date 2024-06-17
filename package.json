@@ -23,7 +23,9 @@
     "server": "cd backend && nodemon server.js",
     "client": "react-scripts start",
     "install-python-dependencies": "pip install -r requirements.txt",
-    "build": "react-scripts build",
+    "build": "npm-run-all build-client build-server",
+  "build-client": "react-scripts build",
+  "build-server": "echo 'Build server code here'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
