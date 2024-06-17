@@ -8,7 +8,7 @@ function Profile({ id }) {
 
   async function getUserDataById(id) {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${id}`);
+      const response = await fetch(`http://localhost:5000/api/users/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user data');
       }
