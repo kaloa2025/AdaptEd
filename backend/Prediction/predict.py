@@ -4,7 +4,7 @@ import pymongo
 import joblib
 
 # Load the model
-model = joblib.load('../../AdaptEd/Prediction/prediction_model.pkl')
+model = joblib.load('Prediction/prediction_model.pkl')
 
 # MongoDB connection URI
 MONGODB_URI = 'mongodb+srv://aalok:21004@adapted.x6irkuo.mongodb.net/AdaptEd?retryWrites=true&w=majority&appName=AdaptEd'
