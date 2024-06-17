@@ -31,7 +31,7 @@ const handleSubmit = async (e) => {
       // Step 1: Log request payload
       console.log(JSON.stringify(formData));
 
-      const response = await fetch('http://localhost:5000/api/predict', {
+      const response = await fetch('https://adapted-1-back.onrender.com/api/predict', {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json'

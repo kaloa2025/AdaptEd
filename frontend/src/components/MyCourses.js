@@ -8,7 +8,7 @@ function MyCourses({ id }) {
   useEffect(() => {
     async function fetchEnrolledCourses() {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${id}/enrolled-courses`);
+        const response = await fetch(`https://adapted-1-back.onrender.com/api/users/${id}/enrolled-courses`);
         const data = await response.json();
         setCourses(data.map(enrollment => ({
           ...enrollment.courseId,

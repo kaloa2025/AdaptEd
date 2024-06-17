@@ -10,7 +10,7 @@ const useSignup = () => {
         try{
             setError(null);
             setLoading(true);
-            const res=await fetch('http://localhost:5000/api/auth/signup',{
+            const res=await fetch('https://adapted-1-back.onrender.com/api/auth/signup',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',

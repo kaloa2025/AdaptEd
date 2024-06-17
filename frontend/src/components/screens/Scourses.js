@@ -12,7 +12,7 @@ function Scourses(){
   useEffect(() => {
     const fetchPrediction = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/predict');
+        const { data } = await axios.get('https://adapted-1-back.onrender.com/api/predict');
         setPredictionScore(data.score);
       } catch (error) {
         console.error('Error fetching prediction score:', error);
@@ -21,7 +21,7 @@ function Scourses(){
 
     const fetchCourses = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/courses');
+        const { data } = await axios.get('https://adapted-1-back.onrender.com/api/courses');
         setCourses(data);
       } catch (error) {
         console.error('Error fetching courses:', error);

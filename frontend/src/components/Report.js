@@ -11,7 +11,7 @@ function Report() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+        const response = await fetch(`https://adapted-1-back.onrender.com/api/users/${userId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch user data');
         }
@@ -31,7 +31,7 @@ function Report() {
       if (!userData) return;
 
       try {
-        const response = await fetch(`http://localhost:5000/api/courses/${courseId}`);
+        const response = await fetch(`https://adapted-1-back.onrender.com/api/courses/${courseId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch course data');
         }

@@ -28,7 +28,7 @@ const Quiz = () => {
         // Fetch quiz questions from the backend
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/courses/${courseId}/quiz`);
+                const response = await fetch(`https://adapted-1-back.onrender.com/api/courses/${courseId}/quiz`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch quiz questions');
                 }
@@ -109,7 +109,7 @@ const Quiz = () => {
                     quizMarks: score,
                 });
 
-                const response = await fetch('http://localhost:5000/api/users/update', {
+                const response = await fetch('https://adapted-1-back.onrender.com/api/users/update', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

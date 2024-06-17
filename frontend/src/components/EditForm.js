@@ -15,7 +15,7 @@ function EditForm({ id }) {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${id}`);
+        const response = await fetch(`https://adapted-1-back.onrender.com/api/users/${id}`);
         const data = await response.json();
         setFormData({
           username: data.profile.username || '',
@@ -41,7 +41,7 @@ function EditForm({ id }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/users/update-profile/${id}`, {
+      const response = await fetch(`https://adapted-1-back.onrender.com/api/users/update-profile/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
