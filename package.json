@@ -19,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\" ",
+    "start": "npm-run-all --parallel client server",
     "server": "cd backend && nodemon server.js",
     "client": "react-scripts start",
     "install-python-dependencies": "pip install -r requirements.txt",
