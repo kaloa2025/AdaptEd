@@ -49,7 +49,7 @@ router.put('/', async (req, res) => {
 
         const savedPrediction = await prediction.save();
         console.log('save complete');
-        const scriptPath = ('../Prediction/predict.py');
+        const scriptPath = ('Prediction/predict.py');
         exec(`python ${scriptPath}`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing Python script: ${error}`);
